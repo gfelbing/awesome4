@@ -1,0 +1,33 @@
+#!/bin/bash
+# From https://technik.blogbasis.net/batteriewidget-awesome-wm-18-03-2014
+
+#colors
+healthy='#859900'
+low='#b58900'
+discharge='#dc322f'
+
+#could be BAT0, change if necessary
+capacity=`cat /sys/class/power_supply/BAT1/capacity`
+if (($capacity <= 25));
+then
+capacityColour=$low
+else
+capacityColour=$healthy
+fi
+
+status=`cat /sys/class/power_supply/BAT1/status`
+
+if [[ "$status" = "Discharging" ]]
+then
+statusColour=$discharge
+status="▼"
+elif [[ "$status" = "Charging" ]]
+then
+statusColour=$healthy
+status="▲"
+else
+statusColour=$healthy
+status="⚡"
+fi
+
+echo "$capacity% $status"
