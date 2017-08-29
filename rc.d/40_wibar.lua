@@ -137,7 +137,7 @@ awful.screen.connect_for_each_screen(function(s)
             pipe, space,
             create_battery_widget(),
             space, pipe, space,
-            awful.widget.watch("sh -c \"amixer sget Master | grep -m 1 % | awk '{ print $5 $6 }'\"", 1),
+            awful.widget.watch("sh -c \"amixer sget Master | grep -m 1 % | awk '{ print $5 $6 }'\"", 5),
             space, pipe, space,
             wibox.widget.textclock("%a %Y-%m-%d %H:%M W%V", 5),
             space, pipe, space,
