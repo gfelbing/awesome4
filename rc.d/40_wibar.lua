@@ -139,7 +139,7 @@ awful.screen.connect_for_each_screen(function(s)
             space, pipe, space,
             awful.widget.watch("sh -c \"amixer sget Master | grep -m 1 % | awk '{ print $5 $6 }'\"", 1),
             space, pipe, space,
-            wibox.widget.textclock("%Y-%m-%d-%H-%M-%S", 1),
+            wibox.widget.textclock("%a %Y-%m-%d %H:%M W%V", 5),
             space, pipe, space,
             s.mylayoutbox,
             space, pipe,
